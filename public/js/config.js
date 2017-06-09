@@ -9,6 +9,8 @@ requirejs.config({
         common : '../js/common',
         template : 'artTemplate/template-web',
         login : '../js/login',
+        util : '../js/util',
+        index : '../js/index',
         tealist : '../js/teacher-list'
     },
     // 兼容非标准模块
