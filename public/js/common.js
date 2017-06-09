@@ -1,4 +1,4 @@
-define(['jquery','template','cookie'],function($,template){
+define(['jquery','template','nprogress','cookie'],function($,template,nprogress){
     //实现左侧菜单栏中的下拉菜单的打开和关闭
 	$('.navs ul').prev('a').on('click', function () {
 		$(this).next().slideToggle();
@@ -30,4 +30,19 @@ define(['jquery','template','cookie'],function($,template){
         // $(".aside .profile").find('img').attr('src', loginInfo.tc_avatar);
         // $(".aside .profile").find('h4').text(loginInfo.tc_name);
     }
+
+    // 加入遮挡层
+    $(document).ajaxStart(function() {
+        // 显示遮挡效果
+        $('.overlay').show();
+    });
+    $(document).ajaxStop(function() {
+        // 隐藏遮挡效果
+        $('.overlay').hide();
+    });
+
+    // 显示进度条
+    nprogress.start();
+    nprogress.done();
+
 });

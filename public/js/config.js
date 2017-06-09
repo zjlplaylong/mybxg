@@ -11,6 +11,7 @@ requirejs.config({
         login : '../js/login',
         util : '../js/util',
         index : '../js/index',
+        nprogress : 'nprogress/nprogress',
         tealist : '../js/teacher-list'
     },
     // 兼容非标准模块
