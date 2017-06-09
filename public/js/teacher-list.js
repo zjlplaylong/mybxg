@@ -9,6 +9,8 @@ define(['jquery','template','bootstrap'],function($,template){
             $('#teacherInfo').html(html);
             // 查看教师信息功能
             previewTeacher();
+            // 点击按钮注销或者启用功能
+            enableOrDisable();
         }
     });
     function previewTeacher (){
@@ -25,6 +27,34 @@ define(['jquery','template','bootstrap'],function($,template){
                     var html = template('teacherModalInfoTpl',data.result);
                     $("#teacherModalInfo").html(html);
                     $("#teacherModal").modal();
+                }
+            });
+            return false;
+        });
+    }
+    // 点击按钮注销或者启用功能
+    function enableOrDisable(){
+        $("#teacherInfo").find('.edable').click(function(){
+            var that = this;
+            var td = $(this).closest('td');
+            var tcId = td.attr('data-id');
+            var tcStatus = td.attr('data-status');
+            console.log(tcStatus);
+            $.ajax({
+                type : 'post',
+                url : '/api/teacher/handle',
+                data : {tc_id : tcId,tc_status : tcStatus},
+                dataType : 'json',
+                success : function(data){
+                    if(data.code == 200){
+                        // 当点击的时候，通过后台接口里面的方法进行转换
+                        td.attr('data-status',data.result.tc_status);
+                        if(data.result.tc_status == 0){
+                            $(that).text('注销');
+                        }else {
+                            $(that).text('启用');
+                        }
+                    }
                 }
             });
         });
