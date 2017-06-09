@@ -8,7 +8,8 @@ requirejs.config({
         cookie : 'jquery-cookie/jquery.cookie',
         common : '../js/common',
         template : 'artTemplate/template-web',
-        login : '../js/login'
+        login : '../js/login',
+        tealist : '../js/teacher-list'
     },
     // 兼容非标准模块
     shim : {
