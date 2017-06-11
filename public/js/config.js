@@ -12,7 +12,8 @@ requirejs.config({
         util : '../js/util',
         index : '../js/index',
         nprogress : 'nprogress/nprogress',
-        tealist : '../js/teacher-list'
+        tealist : '../js/teacher-list',
+        teaadd : '../js/teacher-add'
     },
     // 兼容非标准模块
     shim : {
