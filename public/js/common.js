@@ -9,7 +9,7 @@ define(['jquery','template','nprogress','cookie'],function($,template,nprogress)
             type : 'post',
             url : '/api/logout',
             dataType : 'json',
-            success : function (){
+            success : function (data){
                 location.href = '/login';
             }
         });

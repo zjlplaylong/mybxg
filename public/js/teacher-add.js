@@ -3,15 +3,17 @@ define(['jquery','util','template'],function($,util,template){
     util.setMenu('/teacher/list');
     // 获取参数中tc_id
     var tcId = util.getSearch('tc_id',location.search);
+    console.log(tcId)
     // 表单处理
     $("#addTeacherBtn").click(function() {
+        console.log(1);
         $.ajax({
             type : 'post',
             url : '/api/teacher/add',
             data : $("#addTeacherForm").serialize(),
             dataType : 'json',
             success : function(data){
-                console.log(data);
+                location.href = '/teacher/list';
             }
         });
     });
